@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className='font-poppins'>
+      <body className='font-poppins bg-gray-300 dark:bg-[#151E3D]'>
         <Providers >
           <ThemeProviders >
             <Navbar />

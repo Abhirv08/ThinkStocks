@@ -15,7 +15,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="flex items-center justify-between p-4 dark:bg-slate-700 dark:text-white bg-blue-500">
+        <nav className="flex items-center justify-between p-4 dark:bg-[#26328B] dark:text-white bg-blue-500">
             <div className="text-white">
                 TrackStock
             </div>
