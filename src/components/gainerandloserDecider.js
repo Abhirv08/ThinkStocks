@@ -26,7 +26,7 @@ const GainerandloserDecider = () => {
                 const midnightUTC = expirationDate.getTime();
 
                 if (selectedType === "top_gainers") {
-                    const response = await fetch(`https://api.finage.co.uk/market-information/us/most-gainers?apikey=API_KEY52KZKCEFUQORNS85XWIMXJMTK8NTK0EN`);
+                    const response = await fetch(`https://api.finage.co.uk/market-information/us/most-gainers?apikey=${process.env.NEXT_PUBLIC_API_KEY2}`);
                     const newData = await response.json();
                     const sortedData = newData.filter(data => parseFloat(data.change))
                         .sort((a, b) => parseFloat(b.change_percentage) - parseFloat(a.change_percentage))
@@ -34,7 +34,7 @@ const GainerandloserDecider = () => {
                     localStorage.setItem('top_gainers', JSON.stringify({ data: sortedData, expirationTime: midnightUTC }));
                     setData(sortedData);
                 } else {
-                    const response = await fetch(`https://api.finage.co.uk/market-information/us/most-losers?apikey=API_KEY52KZKCEFUQORNS85XWIMXJMTK8NTK0EN`);
+                    const response = await fetch(`https://api.finage.co.uk/market-information/us/most-losers?apikey=${process.env.NEXT_PUBLIC_API_KEY2}`);
                     const newData = await response.json();
                     const sortedData = newData.filter(data => parseFloat(data.change) < 0)
                         .sort((a, b) => parseFloat(a.change_percentage) - parseFloat(b.change_percentage))
