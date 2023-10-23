@@ -1,19 +1,18 @@
 import Link from 'next/link';
 import React from 'react';
 
+const Card = ({ companyName, ticker, price, percentageChange }) => {
 
-const Card = ({ areaOfWork, companyName, price, percentageChange }) => {
 
     return (
-        <Link href={`/${companyName}`} className='w-fit'>
-            <div className="w-full h-full md:w-60 rounded-lg shadow-lg p-4 mb-4 dark:bg-[#787A91] dark:text-[#EEEEEE] bg-white text-black">
-                <div className='flex flex-col '>
-                    <div className='text-xs'>{areaOfWork}</div>
-                    <p className=''>{companyName}</p>
+        <Link href={`/${ticker}`} className='w-fit m-auto'>
+            <div className="w-[270px] h-full rounded-lg shadow-lg p-4 dark:bg-[#272c63] dark:text-[#EEEEEE] bg-white text-black">
+                <div className='flex flex-col h-12 max-h-12 overflow-hidden'>
+                    <p className='text-[#1c264b] dark:text-[#dbd8d8] font-bold'>{companyName + " (" + ticker + ")"}</p>
                 </div>
-                <div>
-                    <p>{price}</p>
-                    <p>{percentageChange}</p>
+                <div className='flex mt-3 px-4 justify-between w-full font-semibold'>
+                    <p >${parseFloat(price).toFixed(2)}</p>
+                    <p className={`${(percentageChange[0] === '-') ? "text-red-500" : "text-green-500"}`}>{parseFloat(percentageChange) > 0 ? "+" : ""}{parseFloat(percentageChange).toFixed(2)}%</p>
                 </div>
             </div>
         </Link>
