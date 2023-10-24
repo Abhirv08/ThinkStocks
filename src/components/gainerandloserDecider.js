@@ -29,7 +29,7 @@ const GainerandloserDecider = () => {
 
                 if (!flag.current) {
                     if (selectedType === "top_gainers") {
-                        const response = await fetch(`https://api.finage.co.uk/market-information/us/most-gainers?apikey=${process.env.NEXT_PUBLIC_API_KEY2}`);
+                        const response = await fetch(`https://api.finage.co.uk/market-information/us/most-gainers?apikey=API_KEY52KZKCEFUQORNS85XWIMXJMTK8NTK0EN`);
                         const newData = await response.json();
                         const sortedData = newData.filter(data => parseFloat(data.change))
                             .sort((a, b) => parseFloat(b.change_percentage) - parseFloat(a.change_percentage))
@@ -37,7 +37,7 @@ const GainerandloserDecider = () => {
                         localStorage.setItem('top_gainers', JSON.stringify({ data: sortedData, expirationTime: midnightUTC }));
                         setData(sortedData);
                     } else {
-                        const response = await fetch(`https://api.finage.co.uk/market-information/us/most-losers?apikey=${process.env.NEXT_PUBLIC_API_KEY2}`);
+                        const response = await fetch(`https://api.finage.co.uk/market-information/us/most-losers?apikey=API_KEY52KZKCEFUQORNS85XWIMXJMTK8NTK0EN`);
                         const newData = await response.json();
                         const sortedData = newData.filter(data => parseFloat(data.change) < 0)
                             .sort((a, b) => parseFloat(a.change_percentage) - parseFloat(b.change_percentage))
@@ -59,7 +59,7 @@ const GainerandloserDecider = () => {
     return (
         <div className=' h-full w-full px-2 sm:px-4  py-4 relative'>
             <TypeButtons selectedType={selectedType} setSelectedType={setSelectedType} />
-            <CardList data={data} selectedType={selectedType} showFull={showFull} />
+            <CardList data={data} showFull={showFull} />
             {!showFull && <div className='mt-12 absolute left-0 right-0 m-auto text-center translate-1/2 bottom-2 sm:-bottom-2 '>
                 <button onClick={() => setShowFull(!showFull)} className='flex flex-col items-center w-fit cursor-pointer m-auto font-bold'>
                     <p>Load More</p>

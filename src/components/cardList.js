@@ -1,6 +1,6 @@
 const { default: Card } = require("./card");
 
-const CardList = ({ data, selectedType, showFull }) => {
+const CardList = ({ data, showFull }) => {
     const visibleData = showFull ? data : data.slice(0, 12);
 
     return (
@@ -8,7 +8,6 @@ const CardList = ({ data, selectedType, showFull }) => {
             {visibleData.map((d) => (
                 <Card
                     key={d.symbol}
-                    type={selectedType}
                     companyName={d.company_name}
                     ticker={d.symbol}
                     price={d.price}

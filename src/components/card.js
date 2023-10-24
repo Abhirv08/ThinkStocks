@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-const Card = ({ companyName, type, ticker, price, percentageChange }) => {
-
+const Card = ({ companyName, ticker, price, percentageChange }) => {
 
     return (
         <Link href={`/${ticker}&${price}&${percentageChange}`} className='w-fit m-auto'>

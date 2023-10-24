@@ -25,7 +25,7 @@ function MakeGraph({ symbol }) {
                 const midnightUTC = expirationDate.getTime();
 
                 if (!flag.current) {
-                    const response = await fetch(`https://www.alphavantage.co/query?function=SMA&symbol=${symbol}&interval=monthly&time_period=60&series_type=open&apikey=${process.env.NEXT_PUBLIC_API_KEY1}`)
+                    const response = await fetch(`https://www.alphavantage.co/query?function=SMA&symbol=${symbol}&interval=monthly&time_period=60&series_type=open&apikey=WK4AOACZBYHEK5DH`)
                     const newData = await response.json();
                     const req_data = newData["Technical Analysis: SMA"];
                     const dates = Object.keys(req_data).reverse();

@@ -4,7 +4,7 @@ export async function GET() {
         const newData = await response.json();
         const top_gainers = newData.top_gainers;
 
-        const gainerPromises = top_gainers.map(async (gainer, index) => {
+        const gainerPromises = top_gainers.map(async (gainer) => {
             try {
                 // const response2 = await fetchCompanyDataWithRateLimit(gainer.ticker);
                 const response2 = await fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${ticker}&apikey=WK4AOACZBYHEK5DH`);
