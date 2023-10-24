@@ -1,5 +1,4 @@
 import './globals.css'
-import Providers from '@/redux/provider';
 import Navbar from '@/components/navbar';
 import ThemeProviders from '@/components/ThemeProviders';
 
@@ -13,12 +12,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className='font-poppins bg-gray-300 dark:bg-[#151E3D]'>
-        <Providers >
-          <ThemeProviders >
-            <Navbar />
-            {children}
-          </ThemeProviders>
-        </Providers>
+        <ThemeProviders >
+          <Navbar />
+          {children}
+        </ThemeProviders>
       </body>
     </html>
   )

@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
 
-const Card = ({ companyName, ticker, price, percentageChange }) => {
+const Card = ({ companyName, type, ticker, price, percentageChange }) => {
 
 
     return (
-        <Link href={`/${ticker}`} className='w-fit m-auto'>
+        <Link href={`/${ticker}&${price}&${percentageChange}`} className='w-fit m-auto'>
             <div className="w-[270px] h-full rounded-lg shadow-lg p-4 dark:bg-[#272c63] dark:text-[#EEEEEE] bg-white text-black">
                 <div className='flex flex-col h-12 max-h-12 overflow-hidden'>
                     <p className='text-[#1c264b] dark:text-[#dbd8d8] font-bold'>{companyName + " (" + ticker + ")"}</p>
